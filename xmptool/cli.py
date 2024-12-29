@@ -6,16 +6,13 @@ from os import walk
 from os.path import isfile, splitext, join
 from subprocess import run
 from json import loads
-from glob import glob
-from itertools import chain
 from collections import defaultdict
 from uuid import uuid4
-from logging import basicConfig, getLogger
-import colorlog
+from colorlog import getLogger, StreamHandler, ColoredFormatter
 
 EXTs = ('mp4', 'mov', 'avi', 'jpg', 'jpeg', 'png', 'gif', 'tiff', 'tif', 'webp', 'heic', 'heif')
 
-logger = colorlog.getLogger(__name__)
+logger = getLogger(__name__)
 
 def exif_tool(file_path: str, tags: list) -> dict[str, str]:
     cmd = ['exiftool', '-json', '-d', '%Y-%m-%dT%H:%M:%S%:z']
@@ -65,8 +62,8 @@ def main() -> None:
     parser.add_argument('-d', '--debug', action='store_true', help='Enable debug logging.')
     args = parser.parse_args()
 
-    handler = colorlog.StreamHandler()
-    handler.setFormatter(colorlog.ColoredFormatter('%(log_color)s%(levelname)s: %(message)s'))
+    handler = StreamHandler()
+    handler.setFormatter(ColoredFormatter('%(log_color)s%(levelname)s: %(message)s'))
     logger.addHandler(handler)
     logger.setLevel('DEBUG' if args.debug else 'INFO' if args.verbose else 'WARNING')
 

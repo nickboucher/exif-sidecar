@@ -9,7 +9,7 @@ Date/time metadata is inferred from surrounding files in the directory containin
 ## Usage
 
 ```bash
-exif-sidecar.py [-h] [-f] [-v] [-d] dir
+xmptool [-h] [-f] [-v] [-d] dir
 
 positional arguments:
   dir            The directory containing media files.
