@@ -33,6 +33,6 @@ After cloning this repository, you can install the tool using the following comm
 pip install .
 ```
 
-In addition, this tool requires the `exiftool` command line utility to be installed on your system. You can download it from the [ExifTool website](https://exiftool.org/).
+In addition, this tool requires the `exiftool` command line utility to be installed on your system (>=13.10). You can download it from the [ExifTool website](https://exiftool.org/).
 
 Once installed, you can run the tool using the `xmptool` command.

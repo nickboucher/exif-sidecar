@@ -23,6 +23,7 @@ setup(name='xmptool',
         ],
         python_requires='>=3.11',
         install_requires=[
-            'colorlog>=6.9.0'
+            'colorlog>=6.9.0',
+            'packaging>=24.2'
         ]
 )

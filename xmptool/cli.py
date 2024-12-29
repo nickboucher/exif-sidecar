@@ -9,6 +9,7 @@ from json import loads
 from collections import defaultdict
 from uuid import uuid4
 from colorlog import getLogger, StreamHandler, ColoredFormatter
+from packaging.version import Version, parse
 
 EXTs = ('mp4', 'mov', 'avi', 'jpg', 'jpeg', 'png', 'gif', 'tiff', 'tif', 'webp', 'heic', 'heif')
 
@@ -70,6 +71,10 @@ def main() -> None:
     result = run(['exiftool', '-ver'], capture_output=True, text=True)
     if result.returncode != 0:
         logger.error('exiftool is not available. Please install exiftool and try again.')
+        exit(1)
+    exiftool_ver = parse(result.stdout.strip())
+    if exiftool_ver < Version('13.10'):
+        logger.error(f'exiftool version 13.10 or newer is required ({exiftool_ver} installed). Please update exiftool and try again.')
         exit(1)
     
     if not isdir(args.dir):
