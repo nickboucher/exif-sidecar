@@ -4,7 +4,7 @@ This tool will create an XMP sidecar file for any media files in a specified dir
 
 This tool is designed for users of [immich](https://github.com/immich-app/immich), although it can also be used independently. The motivation for this tool is [Google Photos](https://photos.google.com/). When selecting "Download All" from an album in Google Photos, the resulting zip file:
 - Removes EXIF metadata from some media files, particularly videos.
-- Unlinks "Live Photos" from their corresponding video files by stripping key metadata.
+- Links "Live Photos" from their corresponding video files by stripping key metadata.
 
 `xmptool` is designed to automatically correct these issues by bulk creating XMP sidecar files for media files missing date/time metadata and linking "Live Photos" to their corresponding video files.
 
