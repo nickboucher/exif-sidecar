@@ -3,7 +3,7 @@ from datetime import datetime
 from argparse import ArgumentParser
 from sys import exit
 from os import walk
-from os.path import isfile, splitext, join
+from os.path import isfile, splitext, join, isdir
 from subprocess import run
 from json import loads
 from collections import defaultdict
@@ -66,6 +66,15 @@ def main() -> None:
     handler.setFormatter(ColoredFormatter('%(log_color)s%(levelname)s: %(message)s'))
     logger.addHandler(handler)
     logger.setLevel('DEBUG' if args.debug else 'INFO' if args.verbose else 'WARNING')
+
+    result = run(['exiftool', '-ver'], capture_output=True, text=True)
+    if result.returncode != 0:
+        logger.error('exiftool is not available. Please install exiftool and try again.')
+        exit(1)
+    
+    if not isdir(args.dir):
+        logger.error(f"Directory {args.dir} does not exist.")
+        exit(1)
 
     file_paths = []
     for root, dirs, files in walk(args.dir):
