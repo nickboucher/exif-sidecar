@@ -111,7 +111,7 @@ def main() -> None:
                 else:
                     for ext in exts:
                         with open(f'{file}{ext}.xmp', 'w') as f:
-                            logger.info(f"Writing XMP Content ID {'& Date' if pair_creation_date else ''} file: {file}{ext}")
+                            logger.info(f"Writing XMP Content ID {'& Date' if pair_creation_date else ''} file: {file}{ext}.xmp")
                             f.write(xmp(pair_creation_date, pair_content_id))
                         processed_files.append(f'{file}{ext}')
 
