@@ -23,8 +23,12 @@ options:
 
 ## Installation
 
+Install the required packages with pip:
+
 ```bash
 pip install -r requirements.txt
 ```
+
+In addition, this tool requires the `exiftool` command line utility to be installed on your system. You can download it from the [ExifTool website](https://exiftool.org/).
 
 Requires Python 3.6 or later.
