@@ -1,4 +1,4 @@
-# EXIF Sidecar
+# XMP Tool
 
 This tool will create an XMP sidecar file for media files in a directory missing date/time metadata.
 
