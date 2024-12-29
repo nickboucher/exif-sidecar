@@ -150,7 +150,7 @@ def main() -> None:
                         logger.warning(f'XMP file already exists for file {file}, skipping.')
                     else:
                         with open(f'{file_path}.xmp', 'w') as f:
-                            logger.info(f"Writing XMP Date file: {file_path}")
+                            logger.info(f"Writing XMP Date file: {file_path}.xmp")
                             f.write(xmp(recent_date, None))
                         processed_files.append(file_path)
     
