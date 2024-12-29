@@ -84,7 +84,7 @@ def main() -> None:
     file_paths = []
     for root, dirs, files in walk(args.dir):
         for file in files:
-            if file.lower().endswith((EXTs)):
+            if file.lower().endswith((EXTs)) and not file.startswith('._'):
                 file_paths.append(join(root, file))
     file_paths.sort()
 
