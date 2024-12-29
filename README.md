@@ -23,12 +23,12 @@ options:
 
 ## Installation
 
-Install the required packages with pip:
+After cloning this repository, you can install the tool using the following command:
 
 ```bash
-pip install -r requirements.txt
+pip install .
 ```
 
 In addition, this tool requires the `exiftool` command line utility to be installed on your system. You can download it from the [ExifTool website](https://exiftool.org/).
 
-Requires Python 3.6 or later.
+Once installed, you can run the tool using the `xmptool` command.
